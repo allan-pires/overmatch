@@ -1,9 +1,16 @@
 require 'test_helper'
 
 class PlayerControllerTest < ActionDispatch::IntegrationTest
-  test "should get search" do
-    get player_search_url
-    assert_response :success
-  end
+
+	attr_accessor :player_controller
+
+	setup do
+		@player_controller = PlayerController.new
+	end
+
+	test "should normalize battletag" do
+		normalizedBattleTag = @player_controller.normalizeBattleTag("Dois#11104")
+		assert_equal "Dois-11104", normalizedBattleTag
+	end
 
 end
