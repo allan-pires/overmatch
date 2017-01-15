@@ -1,4 +1,10 @@
 <html>
 	<h1>Overmatch</h1>
-	<p>We analized your profile and you most probably suck.</p>
+	
+	<%= form_tag("/player", :method => "get") do %>
+		<%= label_tag :battletag, "Battletag" %>
+	  	<%= text_field_tag :battletag, params[:battletag], placeholder:'Fulano#1234' %>
+	  	<%= submit_tag "Search", :name => nil %>
+	<% end %>
+
 </html>
