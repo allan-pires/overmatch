@@ -1,8 +1,17 @@
 <% if @player_info.present? %>
-  <%= @player_info %>
+  <%= content_tag(:p, @player_info.username) %>
+  <%= content_tag(:p, @player_info.level) %>
+  <%= content_tag(:p, @player_info.quick_wins) %>
+  <%= content_tag(:p, @player_info.competitive_wins) %>
+  <%= content_tag(:p, @player_info.competitive_lost) %>
+  <%= content_tag(:p, @player_info.competitive_played) %>
+  <%= content_tag(:p, @player_info.playtime_quick) %>
+  <%= content_tag(:p, @player_info.playertime_competitive) %>
+  <%= content_tag(:p, @player_info.competitive_rank) %>
+  <%= image_tag @player_info.avatar %>
+  <%= image_tag @player_info.competitive_rank_img %>
+  <%= image_tag @player_info.star %>
+  <%= image_tag @player_info.level_frame %>
 <% else %>
-  <p>We didn't find anything, but you most probably suck.</p> 	
+  <p>We didn't find anything, but you most probably suck.</p>
 <% end %>
-
-
-
