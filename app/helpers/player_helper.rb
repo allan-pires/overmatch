@@ -1,4 +1,5 @@
 require 'net/http'
+require "open-uri"
 
 module PlayerHelper
 	
@@ -7,12 +8,6 @@ module PlayerHelper
 	end
 
 	def self.getData(url_request)
-		url = URI.parse(url_request)
-		request = Net::HTTP::Get.new(url.to_s)
-		response = Net::HTTP.start(url.host, url.port) {|http|
-		  http.request(request)
-		}
-		
-		return response.body
+		return URI.parse(url_request).read
 	end
 end
